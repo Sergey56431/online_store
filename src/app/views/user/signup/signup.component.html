@@ -1,0 +1,40 @@
+<section class="signup" [formGroup]="signupForm">
+  <div class="container">
+    <div class="auth-form">
+      <div class="auth-title">Регистрация на сайте</div>
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 formControlName="email" [ngStyle]="{'border-color': signupForm.get('email')?.invalid
+                 && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty) ? 'red' : ''}"
+                 placeholder="Электронная почта">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 formControlName="password" [ngStyle]="{'border-color': signupForm.get('password')?.invalid
+                 && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty) ? 'red' : ''}"
+                 placeholder="Пароль">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 formControlName="repeatPassword" [ngStyle]="{'border-color': signupForm.get('repeatPassword')?.invalid
+                 && (signupForm.get('repeatPassword')?.touched || signupForm.get('repeatPassword')?.dirty) ? 'red' : ''}"
+                 placeholder="Повторите пароль" repeatPassword>
+        </div>
+        <div class="auth-checkbox">
+          <input type="checkbox" id="rememberMe" formControlName="agree">
+          <label for="rememberMe">Я принимаю <a href="#">условия пользовательского соглашения</a> и даю <a href="#">согласие на обработку персональных данных.</a></label>
+        </div>
+        <div class="auth-action">
+          <button class="btn" [disabled]="signupForm.invalid" (click)="signup()">Зарегистрироваться</button>
+        </div>
+        <div class="auth-link">
+          Уже есть аккаунт? <a routerLink="/login">Войдите</a>
+        </div>
+      </div>
+    </div>
+    <div class="page-image">
+      <img src="assets/images/page/signup-image.png" alt="flower">
+    </div>
+  </div>
+</section>
